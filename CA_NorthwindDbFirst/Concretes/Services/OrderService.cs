@@ -12,14 +12,15 @@ namespace CA_NorthwindDbFirst.Concretes.Services
         }
         //Hangi personel hangi müşteriye kaç adet satış yapmıştır? Listeleyen metot. (Group by kullanımı) 
         //select EmployeeID,CustomerID,COUNT(*) from Orders group by EmployeeID,CustomerID
-        public List<Order> GetOrderCount()
-        {
-            List<Order> orders = _db.Orders.Select(x => new
-            {
-                x.EmployeeId,
-                x.CustomerId,
-            }).GroupBy(x => x.EmployeeId);
-        }
+        //public List<Order> GetOrderCount()
+        //{
+        //    List<Order> orders = _db.Orders.GroupBy(x => x.EmployeeId, x => x.CustomerId).Select(x => new
+        //    {
+        //        EmployeeId = x.EmployeeId,
+        //        CustomerId = x.CustomerId,
+        //        Count = x.Count()
+        //    }).ToList();
+        //}
 
         public List<Order> GetOrdersByDate(DateTime startDate, DateTime endDate)
         {
