@@ -20,6 +20,7 @@ namespace CA_NorthwindDbFirst
             //    Console.WriteLine("*******************");
             //}; 
             #endregion
+            //Subquery
             //productService.FindUnderAvgPrice();
 
             #region OrderService
@@ -34,9 +35,10 @@ namespace CA_NorthwindDbFirst
             //Console.WriteLine("*******************");
             //Console.WriteLine($"Between {userStartDate} and {userEndDate}  Total:{orders.Count}"); 
             #endregion
+            //Group By
             orderService.GetOrderCount();
 
-            //EMPLOYEE SERVICE
+            //EMPLOYEE SERVICE (order by)
             //EmployeeService employeeService = new EmployeeService();
             //employeeService.GetEmployeeAge();
 
