@@ -11,6 +11,9 @@ namespace CA_NorthwindDbFirst.Concretes.Services
         {
             _db = new NorthwindContext();
         }
+
+        
+
         public List<Product> FindCustomPriceProducts(int minPrice, int maxPrice)
         {
             List<Product> products = new List<Product>();

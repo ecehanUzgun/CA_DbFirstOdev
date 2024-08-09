@@ -6,6 +6,6 @@ namespace CA_NorthwindDbFirst.Abstracts.Interfaces
     {
         List<Order> GetOrdersByDate (DateTime startDate, DateTime endDate);
         void GetOrderCount();
-
+        List<Order> OrderCount();
     }
 }

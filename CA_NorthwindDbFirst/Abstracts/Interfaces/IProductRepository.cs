@@ -7,5 +7,6 @@ namespace CA_NorthwindDbFirst.Abstracts.Interfaces
         List<Product> FindCustomPriceProducts(int minPrice, int maxPrice);
         //Fiyatı ortalama fiyatın altında olan ürünleri listeleyen metot. (Having kullanımı)
         void FindUnderAvgPrice();
+        
     }
 }

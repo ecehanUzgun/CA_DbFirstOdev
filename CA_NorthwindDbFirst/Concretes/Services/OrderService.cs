@@ -58,5 +58,22 @@ namespace CA_NorthwindDbFirst.Concretes.Services
             List<Order> orders = _db.Orders.Where(x => x.OrderDate > startDate && x.OrderDate < endDate).OrderByDescending(x => x.OrderDate).ToList();
             return orders;
         }
+
+        #region CS0029
+        public List<Order> OrderCount()
+        {
+            List<Order> orders = _db.Orders.GroupBy(x => new
+            {
+                x.EmployeeId,
+                x.CustomerId
+            }).Select(x => new
+            {
+                Employee = x.Key.EmployeeId,
+                Customer = x.Key.CustomerId,
+                Count = x.Count()
+            }).ToList();
+            return orders;
+        } 
+        #endregion
     }
 }
