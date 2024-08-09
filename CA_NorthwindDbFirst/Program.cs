@@ -20,11 +20,10 @@ namespace CA_NorthwindDbFirst
             //    Console.WriteLine("*******************");
             //}; 
             #endregion
-            productService.FindUnderAvgPrice();
-
+            //productService.FindUnderAvgPrice();
 
             #region OrderService
-            //OrderService orderService = new OrderService();
+            OrderService orderService = new OrderService();
             //DateTime userStartDate = new DateTime(1996, 01, 01);
             //DateTime userEndDate = new DateTime(1996, 12, 31);
             //List<Order> orders = orderService.GetOrdersByDate(userStartDate, userEndDate);
@@ -35,11 +34,12 @@ namespace CA_NorthwindDbFirst
             //Console.WriteLine("*******************");
             //Console.WriteLine($"Between {userStartDate} and {userEndDate}  Total:{orders.Count}"); 
             #endregion
+            orderService.GetOrderCount();
 
-            #region EmployeeService
+            //EMPLOYEE SERVICE
             //EmployeeService employeeService = new EmployeeService();
-            //employeeService.GetEmployeeAge(); 
-            #endregion
+            //employeeService.GetEmployeeAge();
+
 
 
         }

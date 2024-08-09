@@ -10,17 +10,29 @@ namespace CA_NorthwindDbFirst.Concretes.Services
         {
             _db = new NorthwindContext();
         }
+
         //Hangi personel hangi müşteriye kaç adet satış yapmıştır? Listeleyen metot. (Group by kullanımı) 
-        //select EmployeeID,CustomerID,COUNT(*) from Orders group by EmployeeID,CustomerID
-        //public List<Order> GetOrderCount()
-        //{
-        //    List<Order> orders = _db.Orders.GroupBy(x => x.EmployeeId, x => x.CustomerId).Select(x => new
-        //    {
-        //        EmployeeId = x.EmployeeId,
-        //        CustomerId = x.CustomerId,
-        //        Count = x.Count()
-        //    }).ToList();
-        //}
+        public void GetOrderCount()
+        {
+            //select EmployeeID,CustomerID,COUNT(*) from Orders group by EmployeeID,CustomerID
+            #region Linq to SQL 
+            var format = from o in _db.Orders
+                         group o by new { o.EmployeeId, o.CustomerId }
+                             into g
+                         select new
+                         {
+                             Employee = g.Key.EmployeeId,
+                             Customer = g.Key.CustomerId,
+                             Count = g.Count()
+                         };
+
+            foreach (var item in format.ToList())
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine(format.ToList().Count()); 
+            #endregion
+        }
 
         public List<Order> GetOrdersByDate(DateTime startDate, DateTime endDate)
         {
